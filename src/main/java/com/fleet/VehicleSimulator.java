@@ -18,21 +18,17 @@ public class VehicleSimulator {
 
         Random rand = new Random();
         int i = 1;
-        while(i <= 50){
+        while(i <= 20){
             int vehicleId = i;
             int speed = rand.nextInt(60) + 40;
             int engineTemp = rand.nextInt(40) + 180;
             int fuel = rand.nextInt(90) + 10;
 
-            double baseLat = 42.6526;
-            double baseLon = -73.7562;
-
-            double lat = baseLat + (Math.random() * 0.01);
-            double lon = baseLon + (Math.random() * 0.01);
+        
 
             String payload = "{ \"vehicleId\": " + vehicleId + ", \"speed\": " + speed +
                     ", \"engine_temp\": " + engineTemp +
-                    ", \"fuel\": " + fuel +", \"latitude\": " + lat + ", \"longitude\": " + lon + "}";
+                    ", \"fuel\": " + fuel +"}";
 
             MqttMessage message = new MqttMessage(payload.getBytes());
 
